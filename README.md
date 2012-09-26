@@ -10,6 +10,7 @@ This plugin requires Moodle 2.3+
 
 Changes
 =======
+2012-09-26 - Replace deprecated get_context_instance function
 2012-06-25 - Initial version
 
 

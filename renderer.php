@@ -47,7 +47,7 @@ class block_login_userinfo_renderer extends plugin_renderer_base {
             // $course->id is not defined during installation
             return '';
         } else if (isloggedin()) {
-            $context = get_context_instance(CONTEXT_COURSE, $course->id);
+            $context = context_course::instance($course->id);
 
             $fullname = fullname($USER, true);
             // Since Moodle 2.0 this link always goes to the public profile page (not the course profile page)
@@ -92,7 +92,7 @@ class block_login_userinfo_renderer extends plugin_renderer_base {
                         } else {
                             $loggedinas .= get_string('failedloginattemptsall', '', $count);
                         }
-                        if (file_exists("$CFG->dirroot/report/log/index.php") and has_capability('report/log:view', get_context_instance(CONTEXT_SYSTEM))) {
+                        if (file_exists("$CFG->dirroot/report/log/index.php") and has_capability('report/log:view', context_system::instance())) {
                             $loggedinas .= ' (<a href="'.$CFG->wwwroot.'/report/log/index.php'.
                                                  '?chooselog=1&amp;id=1&amp;modid=site_errors">'.get_string('logs').'</a>)';
                         }
