@@ -10,6 +10,8 @@ This plugin requires Moodle 2.3+
 
 Changes
 =======
+2012-11-27 - German language has been integrated into AMOS and was removed from this plugin. Please update your language packs with http://YOURMOODLEURL/admin/tool/langimport/index.php after installing this plugin version
+2012-11-27 - Small code cleanup
 2012-09-26 - Replace deprecated get_context_instance function
 2012-06-25 - Initial version
 
@@ -52,4 +54,11 @@ block_login_userinfo has neither a settings page nor settings in config.php.
 
 Further information
 ===================
+block_login_userinfo is found in the Moodle Plugins repository: http://moodle.org/plugins/view.php?plugin=block_login_userinfo
+
 Report a bug or suggest an improvement: https://github.com/abias/moodle-block_login_userinfo/issues
+
+
+Copyright
+=========
+Alexander Bias, University of Ulm
