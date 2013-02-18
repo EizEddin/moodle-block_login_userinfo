@@ -8,7 +8,7 @@
 //
 // Moodle is distributed in the hope that it will be useful,
 // but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.	 See the
 // GNU General Public License for more details.
 //
 // You should have received a copy of the GNU General Public License
@@ -16,6 +16,15 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['changedrole'] = 'Changed role to {$a}';
-$string['pluginname'] = 'Login / User info';
-$string['login_userinfo:addinstance'] = 'Add a new Login / User info block';
+$capabilities = array(
+	'block/login_userinfo:addinstance' => array(
+		'riskbitmask' => RISK_SPAM | RISK_XSS,
+		'captype' => 'write',
+		'contextlevel' => CONTEXT_BLOCK,
+		'archetypes' => array(
+			'editingteacher' => CAP_ALLOW,
+			'manager' => CAP_ALLOW
+		),
+		'clonepermissionsfrom' => 'moodle/site:manageblocks'
+	),
+);

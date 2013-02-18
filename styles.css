@@ -9,13 +9,17 @@
 
 
 /* User info only */
-.block_userinfo .content {
-        padding-left: 45px !important;
+.block_userinfo .wrapper {
+	position: relative; /* Needed to use position: absolute for userpicture properly */
 }
 
 .block_userinfo .userinfo,
+.block_userinfo .realuser,
+.block_userinfo .roleswitch,
+.block_userinfo .loginfailures,
 .block_userinfo .logout {
         display: block;
+        padding-left: 45px;
 }
 
 .block_userinfo .logout {
@@ -26,8 +30,9 @@
 /* User avatar */
 .block_userinfo .userpicture {
 	height: inherit !important; /* Take userpicture dimensions from html attributes which get their value from moodle core */
-	margin-left: -40px;
+	left: 0;
 	position: absolute;
+	top: 0;
 	width: inherit !important;
 }
 
