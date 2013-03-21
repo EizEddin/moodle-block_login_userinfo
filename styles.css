@@ -1,16 +1,16 @@
 /* Login only */
 .block_login .btn {
-	margin-top: 0;
+    margin-top: 0;
 }
 
 .block_login .footer {
-	margin-top: 15px;
+    margin-top: 15px;
 }
 
 
 /* User info only */
 .block_userinfo .wrapper {
-	position: relative; /* Needed to use position: absolute for userpicture properly */
+    position: relative; /* Needed to use position: absolute for userpicture properly */
 }
 
 .block_userinfo .userinfo,
@@ -29,44 +29,44 @@
 
 /* User avatar */
 .block_userinfo .userpicture {
-	height: inherit !important; /* Take userpicture dimensions from html attributes which get their value from moodle core */
-	left: 0;
-	position: absolute;
-	top: 0;
-	width: inherit !important;
+    height: inherit !important; /* Take userpicture dimensions from html attributes which get their value from moodle core */
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: inherit !important;
 }
 
 
 /* Infos when switching roles or using login-as */
 .block_userinfo .roleswitch {
-	margin-top: 20px;
+    margin-top: 20px;
 }
 
 .block_userinfo .realuser {
-	display: block;
+    display: block;
 }
 
 
 /* Pulsing failed login info (webkit and mozilla only) */
 @-webkit-keyframes pulse {
-	0% { color: inherit; }
-	50% { color: red; }
-	100% { color: inherit; }
+    0% { color: inherit; }
+    50% { color: red; }
+    100% { color: inherit; }
 }
 
 @-moz-keyframes pulse {
-	0% { color: inherit; }
-	50% { color: red; }
-	100% { color: inherit; }
+    0% { color: inherit; }
+    50% { color: red; }
+    100% { color: inherit; }
 }
 
 .block_userinfo .loginfailures {
-	-webkit-animation-name: pulse;  
-	-moz-animation-name: pulse;  
-	-webkit-animation-iteration-count: infinite;  
-	-moz-animation-iteration-count: infinite;  
-	-webkit-animation-timing-function: ease;
-	-moz-animation-timing-function: ease;
-	-webkit-animation-duration: 4s;
-	-moz-animation-duration: 4s;
+    -webkit-animation-name: pulse;
+    -moz-animation-name: pulse;
+    -webkit-animation-iteration-count: infinite;
+    -moz-animation-iteration-count: infinite;
+    -webkit-animation-timing-function: ease;
+    -moz-animation-timing-function: ease;
+    -webkit-animation-duration: 4s;
+    -moz-animation-duration: 4s;
 }

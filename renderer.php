@@ -14,6 +14,17 @@
 // You should have received a copy of the GNU General Public License
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
+/**
+ * Block "login / userinfo" - Renderer
+ *
+ * @package     block
+ * @subpackage  block_login_userinfo
+ * @copyright   2013 Alexander Bias, University of Ulm <alexander.bias@uni-ulm.de>
+ * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ */
+
+defined('MOODLE_INTERNAL') || die();
+
 class block_login_userinfo_renderer extends plugin_renderer_base {
 
     /* Function copied from /lib/outputrenderers.php and modified */
@@ -41,10 +52,12 @@ class block_login_userinfo_renderer extends plugin_renderer_base {
             $fullname = fullname($realuser, true);
             if ($withlinks) {
                 $realuserinfo = " [<a href=\"$CFG->wwwroot/course/loginas.php?id=$course->id&amp;sesskey=".sesskey()."\">$fullname</a>] ";
-            } else {
+            }
+            else {
                 $realuserinfo = " [$fullname] ";
             }
-        } else {
+        }
+        else {
             $realuserinfo = '';
         }
 
@@ -53,20 +66,23 @@ class block_login_userinfo_renderer extends plugin_renderer_base {
         if (empty($course->id)) {
             // $course->id is not defined during installation
             return '';
-        } else if (isloggedin()) {
+        }
+        else if (isloggedin()) {
             $context = context_course::instance($course->id);
 
             $fullname = fullname($USER, true);
             // Since Moodle 2.0 this link always goes to the public profile page (not the course profile page)
             if ($withlinks) {
                 $username = "<a href=\"$CFG->wwwroot/user/profile.php?id=$USER->id\">$fullname</a>";
-            } else {
+            }
+            else {
                 $username = $fullname;
             }
             if (is_mnet_remote_user($USER) and $idprovider = $DB->get_record('mnet_host', array('id'=>$USER->mnethostid))) {
                 if ($withlinks) {
                     $username .= " from <a href=\"{$idprovider->wwwroot}\">{$idprovider->name}</a>";
-                } else {
+                }
+                else {
                     $username .= " from {$idprovider->name}";
                 }
             }
@@ -75,25 +91,28 @@ class block_login_userinfo_renderer extends plugin_renderer_base {
                 if (!$loginpage && $withlinks) {
                     $loggedinas .= " (<a href=\"$loginurl\">".get_string('login').'</a>)';
                 }
-            } else if (is_role_switched($course->id)) { // Has switched roles
+            }
+            else if (is_role_switched($course->id)) { // Has switched roles
                 $rolename = '';
                 if ($role = $DB->get_record('role', array('id'=>$USER->access['rsw'][$context->path]))) {
                     $rolename = format_string($role->name);
                 }
                 $loggedinas = '<div class="userinfo">'.get_string('loggedinas', 'moodle', '<strong>'.$username.'</strong>').'</div>
-                				<div class="roleswitch">'.get_string('changedrole', 'block_login_userinfo', '<strong>'.$rolename.'</strong>');
-		if ($withlinks) {
-			$loggedinas .= "<br /><a href=\"$CFG->wwwroot/course/view.php?id=$course->id&amp;switchrole=0&amp;sesskey=".sesskey()."\">".get_string('switchrolereturn').'</a>';
-		}
-		$loggedinas .= '</div>';
-            } else {
-                $loggedinas = '<div class="userinfo">'.get_string('loggedinas', 'moodle', '<strong>'.$username.'</strong>').'</div>
-                				<div class="realuser">'.$realuserinfo.'</div>';
-		if ($withlinks) {
-                	$loggedinas .= '<div class="logout"><form method="GET" action="'.$CFG->wwwroot.'/login/logout.php"><input type="hidden" name="sesskey" value="'.sesskey().'"><input type="submit" value="'.get_string('logout').'" /></form></div>';
-		}
+                                <div class="roleswitch">'.get_string('changedrole', 'block_login_userinfo', '<strong>'.$rolename.'</strong>');
+                if ($withlinks) {
+                    $loggedinas .= "<br /><a href=\"$CFG->wwwroot/course/view.php?id=$course->id&amp;switchrole=0&amp;sesskey=".sesskey()."\">".get_string('switchrolereturn').'</a>';
+                }
+                $loggedinas .= '</div>';
             }
-        } else {
+            else {
+                $loggedinas = '<div class="userinfo">'.get_string('loggedinas', 'moodle', '<strong>'.$username.'</strong>').'</div>
+                                <div class="realuser">'.$realuserinfo.'</div>';
+                if ($withlinks) {
+                    $loggedinas .= '<div class="logout"><form method="GET" action="'.$CFG->wwwroot.'/login/logout.php"><input type="hidden" name="sesskey" value="'.sesskey().'"><input type="submit" value="'.get_string('logout').'" /></form></div>';
+                }
+            }
+        }
+        else {
             $loggedinas = get_string('loggedinnot', 'moodle');
             if (!$loginpage && $withlinks) {
                 $loggedinas .= " (<a href=\"$loginurl\">".get_string('login').'</a>)';
@@ -112,8 +131,7 @@ class block_login_userinfo_renderer extends plugin_renderer_base {
                             $loggedinas .= get_string('failedloginattemptsall', '', $count);
                         }
                         if (file_exists("$CFG->dirroot/report/log/index.php") and has_capability('report/log:view', context_system::instance())) {
-                            $loggedinas .= ' (<a href="'.$CFG->wwwroot.'/report/log/index.php'.
-                                                 '?chooselog=1&amp;id=1&amp;modid=site_errors">'.get_string('logs').'</a>)';
+                            $loggedinas .= ' (<a href="'.$CFG->wwwroot.'/report/log/index.php?chooselog=1&amp;id=1&amp;modid=site_errors">'.get_string('logs').'</a>)';
                         }
                         $loggedinas .= '</div>';
                     }

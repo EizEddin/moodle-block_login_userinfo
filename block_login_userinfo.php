@@ -14,31 +14,54 @@
 // You should have received a copy of the GNU General Public License
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
+/**
+ * Block "login / userinfo"
+ *
+ * @package     block
+ * @subpackage  block_login_userinfo
+ * @copyright   2013 Alexander Bias, University of Ulm <alexander.bias@uni-ulm.de>
+ * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ */
+
+defined('MOODLE_INTERNAL') || die();
+
 class block_login_userinfo extends block_base {
     function init() {
         $this->title = get_string('pluginname', 'block_login');
+    }
+
+    function specialization() {
+        if (!isloggedin() or isguestuser()) {
+            $this->title = get_string('login');
+        }
+        else {
+            $this->title = get_string('user');
+        }
+    }
+
+    function html_attributes() {
+        if (!isloggedin() or isguestuser()) {
+            return array('id' => 'inst'.$this->instance->id, 'class' => 'block block_login block_'. $this->name());
+        }
+        else {
+            return array('id' => 'inst'.$this->instance->id, 'class' => 'block block_userinfo block_'. $this->name());
+        }
     }
 
     function applicable_formats() {
         return array('site' => true);
     }
 
-    function specialization() {
-    if (!isloggedin() or isguestuser())
-        $this->title = get_string('login');
-    else
-        $this->title = get_string('user');
+    function has_config() {
+        return false;
     }
 
-    function html_attributes() {
-        if (!isloggedin() or isguestuser())
-            return array('id' => 'inst'.$this->instance->id, 'class' => 'block block_login block_'. $this->name());
-        else
-            return array('id' => 'inst'.$this->instance->id, 'class' => 'block block_userinfo block_'. $this->name());
+    function instance_allow_multiple() {
+        return false;
     }
 
-    function instance_can_be_hidden() { 
-        return false; 
+    function instance_can_be_hidden() {
+        return false;
     }
 
     function get_content () {
@@ -46,7 +69,7 @@ class block_login_userinfo extends block_base {
         $wwwroot = '';
         $signup = '';
 
-        if ($this->content !== NULL) {
+        if ($this->content !== null) {
             return $this->content;
         }
 
@@ -75,6 +98,7 @@ class block_login_userinfo extends block_base {
 
         $username = get_moodle_cookie();
 
+        $this->content = new stdClass();
         $this->content->footer = '';
         $this->content->text = '';
 
@@ -109,12 +133,10 @@ class block_login_userinfo extends block_base {
             $this->content->text .= '<div class="wrapper">';
                 $this->content->text .= $OUTPUT->user_picture($USER, array('size'=>30));
                 $renderer = $this->page->get_renderer('block_login_userinfo');
-                $this->content->text .= $renderer->login_userinfo(); 
+                $this->content->text .= $renderer->login_userinfo();
             $this->content->text .= '</div>';
         }
 
         return $this->content;
     }
 }
-
-
