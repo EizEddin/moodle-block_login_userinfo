@@ -10,6 +10,8 @@ This plugin requires Moodle 2.4+
 
 Changes
 =======
+2013-04-23 - Add required capability for placing block on MyMoodle page
+2013-03-25 - Small code change because of change in Moodle core which is the basis for this plugin
 2013-03-18 - Fix php strict standards bug, Code cleanup according to moodle codechecker
 2013-02-18 - Check compatibility for Moodle 2.4, modified HTML and CSS to overcome problems in some core themes. Please check your custom theme if you have one
 2012-11-27 - German language has been integrated into AMOS and was removed from this plugin. Please update your language packs with http://YOURMOODLEURL/admin/tool/langimport/index.php after installing this plugin version

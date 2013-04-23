@@ -51,7 +51,9 @@ class block_login_userinfo_renderer extends plugin_renderer_base {
             $realuser = session_get_realuser();
             $fullname = fullname($realuser, true);
             if ($withlinks) {
-                $realuserinfo = " [<a href=\"$CFG->wwwroot/course/loginas.php?id=$course->id&amp;sesskey=".sesskey()."\">$fullname</a>] ";
+                $loginastitle = get_string('loginas');
+                $realuserinfo = " [<a href=\"$CFG->wwwroot/course/loginas.php?id=$course->id&amp;sesskey=".sesskey()."\"";
+                $realuserinfo .= "title =\"".$loginastitle."\">$fullname</a>] ";
             }
             else {
                 $realuserinfo = " [$fullname] ";
@@ -73,7 +75,8 @@ class block_login_userinfo_renderer extends plugin_renderer_base {
             $fullname = fullname($USER, true);
             // Since Moodle 2.0 this link always goes to the public profile page (not the course profile page)
             if ($withlinks) {
-                $username = "<a href=\"$CFG->wwwroot/user/profile.php?id=$USER->id\">$fullname</a>";
+                $linktitle = get_string('viewprofile');
+                $username = "<a href=\"$CFG->wwwroot/user/profile.php?id=$USER->id\" title=\"$linktitle\">$fullname</a>";
             }
             else {
                 $username = $fullname;
@@ -95,7 +98,7 @@ class block_login_userinfo_renderer extends plugin_renderer_base {
             else if (is_role_switched($course->id)) { // Has switched roles
                 $rolename = '';
                 if ($role = $DB->get_record('role', array('id'=>$USER->access['rsw'][$context->path]))) {
-                    $rolename = format_string($role->name);
+                    $rolename = role_get_name($role, $context);
                 }
                 $loggedinas = '<div class="userinfo">'.get_string('loggedinas', 'moodle', '<strong>'.$username.'</strong>').'</div>
                                 <div class="roleswitch">'.get_string('changedrole', 'block_login_userinfo', '<strong>'.$rolename.'</strong>');
