@@ -103,7 +103,9 @@ class block_login_userinfo_renderer extends plugin_renderer_base {
                 $loggedinas = '<div class="userinfo">'.get_string('loggedinas', 'moodle', '<strong>'.$username.'</strong>').'</div>
                                 <div class="roleswitch">'.get_string('changedrole', 'block_login_userinfo', '<strong>'.$rolename.'</strong>');
                 if ($withlinks) {
-                    $loggedinas .= "<br /><a href=\"$CFG->wwwroot/course/view.php?id=$course->id&amp;switchrole=0&amp;sesskey=".sesskey()."\">".get_string('switchrolereturn').'</a>';
+                    $url = new moodle_url('/course/switchrole.php', array('id'=>$course->id,'sesskey'=>sesskey(), 'switchrole'=>0, 'returnurl'=>$this->page->url->out_as_local_url(false)));
+                    $loggedinas .= '<br />'.html_writer::tag('a', get_string('switchrolereturn'), array('href'=>$url));
+
                 }
                 $loggedinas .= '</div>';
             }
