@@ -60,13 +60,23 @@
     100% { color: inherit; }
 }
 
+@keyframes pulse {
+    0% { color: inherit; }
+    50% { color: red; }
+    100% { color: inherit; }
+}
+
 .block_userinfo .loginfailures {
     -webkit-animation-name: pulse;
     -moz-animation-name: pulse;
+    animation-name: pulse;
     -webkit-animation-iteration-count: infinite;
     -moz-animation-iteration-count: infinite;
+    animation-iteration-count: infinite;
     -webkit-animation-timing-function: ease;
     -moz-animation-timing-function: ease;
+    animation-timing-function: ease;
     -webkit-animation-duration: 4s;
     -moz-animation-duration: 4s;
+    animation-duration: 4s;
 }

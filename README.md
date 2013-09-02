@@ -10,6 +10,7 @@ This plugin requires Moodle 2.5+
 
 Changes
 =======
+2013-09-02 - Add non-vendor-prefixed styles for pulse text style (used when displaying failed logins)
 2013-07-30 - Transfer Github repository from github.com/abias/... to github.com/moodleuulm/...; Please update your Git paths if necessary
 2013-07-30 - Check compatibility for Moodle 2.5, no functionality change
 2013-04-23 - Add required capability for placing block on MyMoodle page
