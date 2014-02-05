@@ -47,8 +47,8 @@ class block_login_userinfo_renderer extends plugin_renderer_base {
 
         $loginpage = ((string)$this->page->url === get_login_url());
         $course = $this->page->course;
-        if (session_is_loggedinas()) {
-            $realuser = session_get_realuser();
+        if (\core\session\manager::is_loggedinas()) {
+            $realuser = \core\session\manager::get_realuser();
             $fullname = fullname($realuser, true);
             if ($withlinks) {
                 $loginastitle = get_string('loginas');

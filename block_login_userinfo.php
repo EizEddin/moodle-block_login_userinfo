@@ -27,7 +27,7 @@ defined('MOODLE_INTERNAL') || die();
 
 class block_login_userinfo extends block_base {
     function init() {
-        $this->title = get_string('pluginname', 'block_login');
+        $this->title = get_string('pluginname', 'block_login_userinfo');
     }
 
     function specialization() {

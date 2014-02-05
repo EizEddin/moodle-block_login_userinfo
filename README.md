@@ -5,11 +5,13 @@ Moodle block which provides all functionality of block_login and displays additi
 
 Requirements
 ============
-This plugin requires Moodle 2.5+
+This plugin requires Moodle 2.6
 
 
 Changes
 =======
+2014-01-31 - Bugfix: This block used the same title as the core block_login plugin which caused CLI updates to fail under certain circumstances
+2014-01-31 - Check compatibility for Moodle 2.6, no functionality change
 2013-09-02 - Add non-vendor-prefixed styles for pulse text style (used when displaying failed logins)
 2013-07-30 - Transfer Github repository from github.com/abias/... to github.com/moodleuulm/...; Please update your Git paths if necessary
 2013-07-30 - Check compatibility for Moodle 2.5, no functionality change
@@ -28,14 +30,14 @@ Installation
 Install the plugin like any other plugin to folder
 /blocks/login_userinfo
 
-See http://docs.moodle.org/25/en/Installing_plugins for details on installing Moodle plugins
+See http://docs.moodle.org/26/en/Installing_plugins for details on installing Moodle plugins
 
 
 Placement
 =========
 block_login_userinfo is used ideally as sticky block and appears on all of your moodle pages at the same position
 
-See http://docs.moodle.org/25/en/Block_settings#Making_a_block_sticky_throughout_the_whole_site for details about sticky blocks
+See http://docs.moodle.org/26/en/Block_settings#Making_a_block_sticky_throughout_the_whole_site for details about sticky blocks
 
 
 Usage
