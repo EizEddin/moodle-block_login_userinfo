@@ -72,7 +72,7 @@ class block_login_userinfo_renderer extends plugin_renderer_base {
         else if (isloggedin()) {
             $context = context_course::instance($course->id);
 
-            $fullname = fullname($USER, true);
+            $fullname = fullname($USER);
             // Since Moodle 2.0 this link always goes to the public profile page (not the course profile page)
             if ($withlinks) {
                 $linktitle = get_string('viewprofile');
@@ -128,15 +128,15 @@ class block_login_userinfo_renderer extends plugin_renderer_base {
             unset($SESSION->justloggedin);
             if (!empty($CFG->displayloginfailures)) {
                 if (!isguestuser()) {
-                    if ($count = count_login_failures($CFG->displayloginfailures, $USER->username, $USER->lastlogin)) {
-                        $loggedinas .= '&nbsp;<div class="loginfailures">';
-                        if (empty($count->accounts)) {
-                            $loggedinas .= get_string('failedloginattempts', '', $count);
-                        } else {
-                            $loggedinas .= get_string('failedloginattemptsall', '', $count);
-                        }
+                    // Include this file only when required.
+                    require_once($CFG->dirroot . '/user/lib.php');
+                    if ($count = user_count_login_failures($USER)) {
+                        $loggedinas .= '<div class="loginfailures">';
+                        $a = new stdClass();
+                        $a->attempts = $count;
+                        $loggedinas .= get_string('failedloginattempts', '', $a);
                         if (file_exists("$CFG->dirroot/report/log/index.php") and has_capability('report/log:view', context_system::instance())) {
-                            $loggedinas .= ' (<a href="'.$CFG->wwwroot.'/report/log/index.php?chooselog=1&amp;id=1&amp;modid=site_errors">'.get_string('logs').'</a>)';
+                            $loggedinas .= ' ('.html_writer::link(new moodle_url('/report/log/index.php', array('chooselog' => 1, 'id' => 0 , 'modid' => 'site_errors')), get_string('logs')).')';
                         }
                         $loggedinas .= '</div>';
                     }
