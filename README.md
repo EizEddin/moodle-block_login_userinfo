@@ -5,11 +5,12 @@ Moodle block which provides all functionality of block_login and displays additi
 
 Requirements
 ------------
-This plugin requires Moodle 2.7+
+This plugin requires Moodle 2.8+
 
 
 Changes
 -------
+* 2015-01-23 - Check compatibility for Moodle 2.8, no functionality change
 * 2014-08-29 - Update README file
 * 2014-08-19 - Use another "username" string when $CFG->authloginviaemail is used
 * 2014-06-30 - Drop support for Non-Bootstrap based themes
