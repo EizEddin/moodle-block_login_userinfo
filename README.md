@@ -68,7 +68,7 @@ block_login_userinfo has neither a settings page nor settings in config.php.
 
 Further information
 -------------------
-block_login_userinfo is found in the Moodle Plugins repository: http://moodle.org/plugins/view.php?plugin=block_login_userinfo
+block_login_userinfo is found in the Moodle Plugins repository: https://moodle.org/plugins/view/block_login_userinfo
 
 Report a bug or suggest an improvement: https://github.com/moodleuulm/moodle-block_login_userinfo/issues
 
