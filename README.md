@@ -13,6 +13,7 @@ This plugin requires Moodle 2.9+
 Changes
 -------
 
+* 2015-08-21 - Change My Moodle to Dashboard in language pack
 * 2015-08-18 - Check compatibility for Moodle 2.9, no functionality change
 * 2015-01-23 - Check compatibility for Moodle 2.8, no functionality change
 * 2014-08-29 - Update README file

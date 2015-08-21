@@ -19,4 +19,4 @@ defined('MOODLE_INTERNAL') || die();
 $string['changedrole'] = 'Changed role to {$a}';
 $string['pluginname'] = 'Login / User info';
 $string['login_userinfo:addinstance'] = 'Add a new Login / User info block';
-$string['login_userinfo:myaddinstance'] = 'Add a new Login / User info block to My home';
+$string['login_userinfo:myaddinstance'] = 'Add a new Login / User info block to Dashboard';
