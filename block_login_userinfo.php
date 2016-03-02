@@ -17,10 +17,9 @@
 /**
  * Block "login / userinfo"
  *
- * @package     block
- * @subpackage  block_login_userinfo
- * @copyright   2013 Alexander Bias, University of Ulm <alexander.bias@uni-ulm.de>
- * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    block_login_userinfo
+ * @copyright  2013 Alexander Bias, University of Ulm <alexander.bias@uni-ulm.de>
+ * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
 defined('MOODLE_INTERNAL') || die();
