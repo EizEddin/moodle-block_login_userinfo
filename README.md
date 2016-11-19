@@ -13,6 +13,7 @@ This plugin requires Moodle 3.0+
 Changes
 -------
 
+* 2016-11-19 - New release v3.1-r1 (2016111900): Checked compatibility for Moodle 3.1, no functionality change, some coding style amendments
 * 2016-11-19 - Updated info of the new maintainer
 * 2016-11-19 - Transfer Github repository from github.com/moodleuulm/... to github.com/EizEddin/...; Please update your Git paths if necessary
 * 2016-02-10 - Change plugin version and release scheme to the scheme promoted by moodle.org, no functionality change

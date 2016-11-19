@@ -32,8 +32,7 @@ class block_login_userinfo extends block_base {
     function specialization() {
         if (!isloggedin() or isguestuser()) {
             $this->title = get_string('login');
-        }
-        else {
+        } else {
             $this->title = get_string('user');
         }
     }
@@ -41,8 +40,7 @@ class block_login_userinfo extends block_base {
     function html_attributes() {
         if (!isloggedin() or isguestuser()) {
             return array('id' => 'inst'.$this->instance->id, 'class' => 'block block_login block_'. $this->name());
-        }
-        else {
+        } else {
             return array('id' => 'inst'.$this->instance->id, 'class' => 'block block_userinfo block_'. $this->name());
         }
     }
@@ -132,8 +130,7 @@ class block_login_userinfo extends block_base {
             if (!empty($forgot)) {
                 $this->content->footer .= '<div><a href="'.$forgot.'">'.get_string('forgotaccount').'</a></div>';
             }
-        }
-        else {
+        } else {
             $this->content->text .= '<div class="wrapper">';
                 $this->content->text .= $OUTPUT->user_picture($USER, array('size'=>30));
                 $renderer = $this->page->get_renderer('block_login_userinfo');
