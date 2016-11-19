@@ -18,7 +18,7 @@
  * Block "login / userinfo" - Renderer
  *
  * @package    block_login_userinfo
- * @copyright  2013 Alexander Bias, University of Ulm <alexander.bias@uni-ulm.de>
+ * @copyright  2016 onwards Eiz Eddin Al Katrib  <eiz@barasoft.co.uk>
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 

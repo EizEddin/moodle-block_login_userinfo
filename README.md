@@ -13,6 +13,8 @@ This plugin requires Moodle 3.0+
 Changes
 -------
 
+* 2016-11-19 - Updated info of the new maintainer
+* 2016-11-19 - Transfer Github repository from github.com/moodleuulm/... to github.com/EizEddin/...; Please update your Git paths if necessary
 * 2016-02-10 - Change plugin version and release scheme to the scheme promoted by moodle.org, no functionality change
 * 2016-01-25 - Improve RewriteRules in README, no functionality change - Credits to Daniel Ruf		
 * 2016-01-01 - Check compatibility for Moodle 3.0, no functionality change
@@ -85,7 +87,7 @@ Further information
 
 block_login_userinfo is found in the Moodle Plugins repository: https://moodle.org/plugins/view/block_login_userinfo
 
-Report a bug or suggest an improvement: https://github.com/moodleuulm/moodle-block_login_userinfo/issues
+Report a bug or suggest an improvement: https://github.com/EizEddin/moodle-block_login_userinfo/issues
 
 
 Moodle release support
@@ -93,7 +95,7 @@ Moodle release support
 
 Due to limited resources, block_login_userinfo is only maintained for the most recent major release of Moodle. However, previous versions of this plugin which work in legacy major releases of Moodle are still available as-is without any further updates in the Moodle Plugins repository.
 
-There may be several weeks after a new major release of Moodle has been published until we can do a compatibility check and fix problems if necessary. If you encounter problems with a new major release of Moodle - or can confirm that block_login_userinfo still works with a new major relase - please let us know on https://github.com/moodleuulm/moodle-block_login_userinfo/issues
+There may be several weeks after a new major release of Moodle has been published until we can do a compatibility check and fix problems if necessary. If you encounter problems with a new major release of Moodle - or can confirm that block_login_userinfo still works with a new major relase - please let us know on https://github.com/EizEddin/moodle-block_login_userinfo/issues
 
 
 Right-to-left support
@@ -107,8 +109,19 @@ github with modifications.
 Copyright
 ---------
 
+2016 onwards Eiz Eddin Al Katrib
+
+
+Original author
+---------------
+
 University of Ulm
 kiz - Media Department
 Team Web & Teaching Support
 Alexander Bias
 
+
+Change of maintainer
+---------------------
+
+On 18/11/2016, this plugin was transferred to Eiz Eddin Al Katrib who is now the main maintainer.
